@@ -1,15 +1,17 @@
 <template>
-	<nav>
-		<img src="" alt="shortly logo" />
+	<nav class="container flex justify-between items-center px-[2rem] py-[4rem]">
+		<img :src="logo" alt="shortly logo" class="w-[12rem]" />
 		<button>
-			<img src="" alt="ham" />
+			<Icon name="quill:hamburger" class="text-[2.9rem]"></Icon>
 		</button>
-		<div class="menu">
+		<div class="absolute hidden">
 			<a href=""></a>
 		</div>
 	</nav>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import logo from '/assets/images/logo.svg'
+</script>
 
 <style lang="scss"></style>
