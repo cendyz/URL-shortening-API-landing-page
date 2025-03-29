@@ -1,21 +1,80 @@
 <template>
-	<footer>
-		<img src="" alt="logo" />
-		<div>
-			<div>
-				<h4></h4>
-				<a href=""></a>
+	<footer class="bg-neutral-gray-400 text-center py-[6rem]">
+		<div class="container">
+			<img :src="logo" alt="logo shortly" class="filt mx-auto" />
+			<div class="mt-[5rem] grid gap-y-[4rem]">
+				<div v-for="(item, index) in footerData" :key="index" class="grid text-neutral-50 capitalize">
+					<h4 class="text-[1.7rem] font-w700 mb-[2.5rem]">{{ item.title }}</h4>
+					<a href="#" v-for="(item2, index2) in item.links" :key="index2" class="pb-[1rem] text-neutral-gray-100">
+						{{ item2 }}</a
+					>
+				</div>
 			</div>
-		</div>
-		<div>
-			<img src="" alt="fb icon" />
+			<div class="mt-[4rem] flex gap-x-[2rem] justify-center">
+				<Icon
+					:name="item.img"
+					:alt="`${item.alt}`"
+					v-for="(item, index) in iconsData"
+					:key="index"
+					class="text-white text-[2.7rem]" />
+			</div>
 		</div>
 	</footer>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import logo from 'assets/images/logo.svg'
 
-<style scoped></style>
+interface Links {
+	title: string
+	links: string[]
+}
+
+interface Icons {
+	img: string
+	alt: string
+}
+
+const footerData = ref<Links[]>([
+	{
+		title: 'Features',
+		links: ['Link Shortening', 'brandend links', 'analytics'],
+	},
+	{
+		title: 'resources',
+		links: ['blog', 'developers', 'support'],
+	},
+	{
+		title: 'company',
+		links: ['about', 'our team', 'careers', 'contact'],
+	},
+])
+
+const iconsData = ref<Icons[]>([
+	{
+		img: 'f7:logo-facebook',
+		alt: 'facebook',
+	},
+	{
+		img: 'mdi:twitter',
+		alt: 'twitter',
+	},
+	{
+		img: 'bi:pinterest',
+		alt: 'pinterest',
+	},
+	{
+		img: 'akar-icons:instagram-fill',
+		alt: 'instagram',
+	},
+])
+</script>
+
+<style scoped>
+.filt {
+	filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(55deg) brightness(108%) contrast(101%);
+}
+</style>
 <!-- export default defineEventHandler(async (event) => {
     try {
       const body = await readBody(event)
