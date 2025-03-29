@@ -3,6 +3,8 @@
 		<Header class="row-start-1 row-end-3 colOne" />
 		<LinkShorter class="row-start-2 row-end-4 colOne mt-[-7.5rem]" />
 		<FirstSection class="row-start-3 row-end-4 colOne"/>
+		<SecondSection class="row-start-4 row-end-5" />
+		<Footer />
 	</main>
 </template>
 
@@ -39,7 +41,7 @@ const error = ref('')
 
 .temples {
 	grid-template-columns: 1fr;
-	grid-template-rows: 1fr auto auto 1fr 1fr 1fr;
+	grid-template-rows: 1fr repeat(5, auto);
 }
 
 .colOne {
