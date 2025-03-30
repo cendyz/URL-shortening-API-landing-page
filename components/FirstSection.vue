@@ -1,7 +1,7 @@
 <template>
 	<section class="bg-neutral-100 pt-[15rem] pb-[10rem] px-[2rem] text-center">
 		<div class="lg:container">
-			<div class="mb-[8rem]" v-if="store.shortedLinks.length">
+			<div class="mb-[8rem] xl:px-[2rem]" v-if="store.shortedLinks.length">
 				<div
 					class="bg-neutral-50 p-[1.5rem] text-left rounded-xl mb-[2rem] lg:flex lg:items-center lg:justify-between"
 					v-for="(item, index) in store.shortedLinks"
@@ -15,24 +15,26 @@
 					</div>
 				</div>
 			</div>
-			<div class="sm:w-[39rem] sm:mx-auto">
-				<h2 class="text-[2.7rem] font-w700 mb-[2rem]">Advanced Statistics</h2>
+			<div class="sm:w-[46rem] sm:mx-auto">
+				<h2 class="text-[2.7rem] lg:text-[3.5rem] font-w700 mb-[2rem]">Advanced Statistics</h2>
 				<p class="text-neutral-500">
 					Track how your links are preforming across the web with our advanced statistics dashboard.
 				</p>
 			</div>
 			<div
-				class="grid gap-y-[8rem] px-[2rem] mt-[8rem] relative before:absolute before:w-[1rem] before:h-full before:bg-primary-cyan before:left-1/2 before:translate-x-[-50%] md:flex md:flex-wrap md:justify-between md:before:rounded-xl">
+				class="grid gap-y-[8rem] mx-[2rem] mt-[8rem] relative before:absolute before:w-[1rem] before:h-full before:bg-primary-cyan before:left-1/2 before:translate-x-[-50%] md:flex md:flex-wrap md:justify-between md:before:rounded-xl xl:flex-nowrap xl:gap-x-[3rem] xl:text-left xl:mt-[10rem] xl:mb-[10rem] xl:before:w-full xl:before:h-[1rem] xl:before:top-1/2">
 				<div
-					class="bg-neutral-50 rounded-xl pb-[3rem] pt-[8rem] relative sm:w-[40rem] sm:mx-auto md:mx-0 md:w-[45%]"
+					class="bg-neutral-50 rounded-xl pb-[3rem] pt-[8rem] relative sm:w-[40rem] sm:mx-auto md:mx-0 md:w-[45%] xl:w-auto"
 					v-for="(item, index) in statsData"
 					:key="index"
-					:class="index === 2 && 'md:mx-auto'">
-					<div class="bg-primary-violet p-[2rem] rounded-full absolute top-[-3.9rem] left-1/2 translate-x-[-50%]">
+					:class="index === 2 && 'md:mx-auto'"
+					:style="{ transform: width >= 1440 ? `translateY(${Math.round(index * 5)}rem)` : 'translateY(0)' }">
+					<div
+						class="bg-primary-violet p-[2rem] rounded-full absolute top-[-3.9rem] left-1/2 translate-x-[-50%] xl:left-[16%]">
 						<img :src="item.img" :alt="item.title" class="block" />
 					</div>
-					<h3 class="text-[2.2rem] font-w700 mb-[2rem]">{{ item.title }}</h3>
-					<p class="px-[2.5rem] text-[1.36rem] text-neutral-500 leading-[1.8]">
+					<h3 class="text-[2.2rem] font-w700 mb-[2rem] xl:px-[4rem]">{{ item.title }}</h3>
+					<p class="px-[2.5rem] text-[1.36rem] text-neutral-500 leading-[1.8] xl:text-[1.5rem] xl:px-[4rem]">
 						{{ item.desc }}
 					</p>
 				</div>
@@ -46,6 +48,9 @@ import firstImg from 'assets/images/icon-brand-recognition.svg'
 import secondImg from 'assets/images/icon-detailed-records.svg'
 import thirdImg from 'assets/images/icon-fully-customizable.svg'
 import useLinkStore from '~/store/linkStore'
+import { useWindowSize } from '#imports'
+
+const { width } = useWindowSize()
 
 const store = useLinkStore()
 
