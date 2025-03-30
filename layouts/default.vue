@@ -1,5 +1,5 @@
 <template>
-	<nav class="lg:container flex justify-between items-center px-[2rem] py-[4rem]" ref="navRef">
+	<nav class="lg:container flex justify-between items-center px-[2rem] py-[4rem] z-[1000] relative" ref="navRef">
 		<div class="flex items-center gap-x-[3rem]">
 			<img :src="logo" alt="shortly logo" class="w-[12rem]" />
 			<a

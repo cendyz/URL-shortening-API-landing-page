@@ -1,16 +1,20 @@
 <template>
-	<footer class="bg-neutral-gray-400 text-center py-[6rem]">
-		<div class="container">
-			<img :src="logo" alt="logo shortly" class="filt mx-auto" />
-			<div class="mt-[5rem] grid gap-y-[4rem]">
-				<div v-for="(item, index) in footerData" :key="index" class="grid text-neutral-50 capitalize">
+	<footer class="bg-neutral-gray-400 text-center py-[6rem] px-[2rem]">
+		<div class="container lg:grid grids">
+			<img :src="logo" alt="logo shortly" class="filt" />
+			<div class="mt-[5rem] grid gap-y-[4rem] lg:grid-cols-3 lg:gap-x-[4rem] lg:mx-auto lg:mt-0">
+				<div v-for="(item, index) in footerData" :key="index" class="grid text-neutral-50 capitalize lg:text-left">
 					<h4 class="text-[1.7rem] font-w700 mb-[2.5rem]">{{ item.title }}</h4>
-					<a href="#" v-for="(item2, index2) in item.links" :key="index2" class="pb-[1rem] text-neutral-gray-100">
+					<a
+						href="#"
+						v-for="(item2, index2) in item.links"
+						:key="index2"
+						class="pb-[1rem] text-neutral-gray-100 lg:w-max">
 						{{ item2 }}</a
 					>
 				</div>
 			</div>
-			<div class="mt-[4rem] flex gap-x-[2rem] justify-center">
+			<div class="mt-[4rem] flex gap-x-[2rem] justify-center lg:mt-0">
 				<Icon
 					:name="item.img"
 					:alt="`${item.alt}`"
@@ -73,6 +77,10 @@ const iconsData = ref<Icons[]>([
 <style scoped>
 .filt {
 	filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(55deg) brightness(108%) contrast(101%);
+}
+
+.grids {
+	grid-template-columns: repeat(3, auto);
 }
 </style>
 <!-- export default defineEventHandler(async (event) => {

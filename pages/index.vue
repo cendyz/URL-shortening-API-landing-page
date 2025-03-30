@@ -1,5 +1,5 @@
 <template>
-	<main class="grid temples">
+	<main class="grid temples overflow-x-clip">
 		<Header class="row-start-1 row-end-3 colOne" />
 		<LinkShorter class="row-start-2 row-end-4 colOne mt-[-8.5rem] md:mt-[-6rem]" />
 		<FirstSection class="row-start-3 row-end-4 colOne" />
