@@ -1,5 +1,5 @@
 <template>
-	<section class="px-[2rem]">
+	<section class="px-[2rem] sm:w-[60rem] sm:mx-auto">
 		<div class="relative p-[2.5rem] rounded-2xl bg-primary-violet overflow-hidden grid gap-y-[1.5rem]">
 			<div class="relative z-[10]">
 				<input

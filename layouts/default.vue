@@ -1,13 +1,31 @@
 <template>
-	<nav class="container flex justify-between items-center px-[2rem] py-[4rem]" ref="navRef">
-		<img :src="logo" alt="shortly logo" class="w-[12rem]" />
-		<button @click="isOpen = !isOpen">
+	<nav class="lg:container flex justify-between items-center px-[2rem] py-[4rem]" ref="navRef">
+		<div class="flex items-center gap-x-[3rem]">
+			<img :src="logo" alt="shortly logo" class="w-[12rem]" />
+			<a
+				href="#"
+				v-for="(item, index) in linksData.slice(0, 3)"
+				:key="index"
+				class="hidden md:inline-block capitalize text-neutral-gray-200"
+				>{{ item }}</a
+			>
+		</div>
+		<div class="hidden md:flex gap-x-[2.5rem] items-center">
+			<a
+				href="#"
+				v-for="(item, index) in linksData.slice(3)"
+				:key="index"
+				class="hidden md:inline-block capitalize text-neutral-gray-200 last:py-[.6rem] last:px-[2rem] last:bg-primary-cyan last:rounded-full last:text-white last:font-w700"
+				>{{ item }}</a
+			>
+		</div>
+		<button @click="isOpen = !isOpen" class="md:hidden">
 			<Icon v-show="!isOpen" name="quill:hamburger" class="text-[2.9rem]"></Icon>
 			<Icon v-show="isOpen" name="hugeicons:cancel-01" class="text-[2.9rem]"></Icon>
 		</button>
 		<Transition>
 			<div
-				v-if="isOpen"
+				v-if="isOpen && width < 768"
 				class="absolute top-[10rem] z-[100] bg-primary-violet left-1/2 translate-x-[-50%] text-white grid gap-y-[2.5rem] w-[calc(100%-3.5rem)] px-[3rem] py-[4rem] text-center rounded-xl">
 				<a
 					href="#"
@@ -23,7 +41,9 @@
 </template>
 
 <script setup lang="ts">
+import { useWindowSize } from '#imports'
 import logo from '/assets/images/logo.svg'
+const { width } = useWindowSize()
 const isOpen = ref<boolean>(false)
 const linksData = ref<string[]>(['features', 'pricing', 'resources', 'login', 'sign up'])
 
