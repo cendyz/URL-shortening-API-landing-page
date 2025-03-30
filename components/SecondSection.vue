@@ -6,12 +6,16 @@
 			class="capitalize mt-[2.5rem] py-[1.2rem] px-[3.5rem] bg-primary-cyan text-[2rem] font-w700 text-white rounded-full z-10 relative"
 			>get started</a
 		>
-        <img :src="bg" aria-hidden="true" alt="" class="block absolute h-full top-0 right-0 z-[0]">
+		<picture>
+			<source :srcset="deskBg" media="(min-width:768px)">
+			<img :src="bg" aria-hidden="true" alt="" class="block absolute h-full top-0 right-0 z-[0]" />
+		</picture>
 	</section>
 </template>
 
 <script setup lang="ts">
 import bg from 'assets/images/bg-boost-mobile.svg'
+import deskBg from 'assets/images/bg-boost-desktop.svg'
 </script>
 
 <style scoped></style>
