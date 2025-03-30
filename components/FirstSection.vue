@@ -17,11 +17,12 @@
 			</p>
 		</div>
 		<div
-			class="grid gap-y-[8rem] px-[2rem] mt-[8rem] relative before:absolute before:w-[1rem] before:h-full before:bg-primary-cyan before:left-1/2 before:translate-x-[-50%]">
+			class="grid gap-y-[8rem] px-[2rem] mt-[8rem] relative before:absolute before:w-[1rem] before:h-full before:bg-primary-cyan before:left-1/2 before:translate-x-[-50%] md:flex md:flex-wrap md:justify-between md:before:rounded-xl">
 			<div
-				class="bg-neutral-50 rounded-xl pb-[3rem] pt-[8rem] relative sm:w-[40rem] sm:mx-auto"
+				class="bg-neutral-50 rounded-xl pb-[3rem] pt-[8rem] relative sm:w-[40rem] sm:mx-auto md:mx-0 md:w-[45%]"
 				v-for="(item, index) in statsData"
-				:key="index">
+				:key="index"
+				:class="index === 2 && 'md:mx-auto'">
 				<div class="bg-primary-violet p-[2rem] rounded-full absolute top-[-3.9rem] left-1/2 translate-x-[-50%]">
 					<img :src="item.img" :alt="item.title" class="block" />
 				</div>
