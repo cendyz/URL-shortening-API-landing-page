@@ -1,8 +1,8 @@
 <template>
 	<main class="grid temples">
 		<Header class="row-start-1 row-end-3 colOne" />
-		<LinkShorter class="row-start-2 row-end-4 colOne mt-[-7.5rem]" />
-		<FirstSection class="row-start-3 row-end-4 colOne"/>
+		<LinkShorter class="row-start-2 row-end-4 colOne mt-[-8.5rem] md:mt-[-6rem]" />
+		<FirstSection class="row-start-3 row-end-4 colOne" />
 		<SecondSection class="row-start-4 row-end-5" />
 		<Footer />
 	</main>
