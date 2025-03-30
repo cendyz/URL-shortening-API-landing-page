@@ -15,7 +15,7 @@
 				<button
 					type="button"
 					:class="shortenStyles"
-					class="capitalize bg-primary-cyan text-white font-w700 md:px-[3rem] md:py-[1.35rem] md:w-[18rem] md:ml-[2rem]"
+					class="capitalize bg-primary-cyan text-white font-w700 md:px-[3rem] md:py-[1.35rem] md:w-[18rem] md:ml-[2rem] before:transition-opacity relative before:absolute before:left-0 before:top-0 before:w-full before:h-full before:bg-white overflow-hidden before:opacity-0 hover:before:opacity-30"
 					@click="shortLink">
 					shorten it!
 				</button>

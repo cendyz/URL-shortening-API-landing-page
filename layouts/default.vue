@@ -6,7 +6,7 @@
 				href="#"
 				v-for="(item, index) in linksData.slice(0, 3)"
 				:key="index"
-				class="hidden md:inline-block capitalize text-neutral-gray-200"
+				class="hidden md:inline-block capitalize text-neutral-gray-200 hover:text-neutral-gray-400 transition-colors"
 				>{{ item }}</a
 			>
 		</div>
@@ -15,7 +15,7 @@
 				href="#"
 				v-for="(item, index) in linksData.slice(3)"
 				:key="index"
-				class="hidden md:inline-block capitalize text-neutral-gray-200 last:py-[.6rem] last:px-[2rem] last:bg-primary-cyan last:rounded-full last:text-white last:font-w700"
+				class="hidden md:inline-block capitalize text-neutral-gray-200 last:py-[.6rem] last:px-[2rem] last:bg-primary-cyan last:rounded-full last:text-white last:font-w700 hover:first:text-neutral-gray-400 transition-colors last:transition-opacity hover:last:opacity-65"
 				>{{ item }}</a
 			>
 		</div>

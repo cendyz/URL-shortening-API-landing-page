@@ -12,7 +12,7 @@
 				Build your brand’s recognition and get detailed insights on how your links are performing.
 			</p>
 			<button
-				class="capitalize mt-[2.5rem] py-[1.2rem] px-[3.5rem] bg-primary-cyan text-[2rem] font-w700 text-white rounded-full lg:text-[1.7rem]">
+				class="capitalize mt-[2.5rem] py-[1.2rem] px-[3.5rem] bg-primary-cyan text-[2rem] font-w700 text-white rounded-full lg:text-[1.7rem] transition-opacity hover:opacity-65">
 				get started
 			</button>
 		</div>

@@ -1,15 +1,18 @@
 <template>
 	<footer class="bg-neutral-gray-400 text-center py-[6rem] px-[2rem]">
-		<div class="container lg:grid grids">
-			<img :src="logo" alt="logo shortly" class="filt" />
-			<div class="mt-[5rem] grid gap-y-[4rem] lg:grid-cols-3 lg:gap-x-[4rem] lg:mx-auto lg:mt-0">
-				<div v-for="(item, index) in footerData" :key="index" class="grid text-neutral-50 capitalize lg:text-left">
+		<div class="container grid lg:flex lg:justify-between lg:items-start">
+			<img :src="logo" alt="logo shortly" class="filt mx-auto" />
+			<div class="mt-[5rem] grid gap-y-[4rem] footerGrids lg:gap-x-[4rem] lg:mx-auto lg:mt-0 lg:pl-[5rem]">
+				<div
+					v-for="(item, index) in footerData"
+					:key="index"
+					class="flex flex-col items-center text-neutral-50 capitalize lg:text-left">
 					<h4 class="text-[1.7rem] font-w700 mb-[2.5rem]">{{ item.title }}</h4>
 					<a
 						href="#"
 						v-for="(item2, index2) in item.links"
 						:key="index2"
-						class="pb-[1rem] text-neutral-gray-100 lg:w-max">
+						class="pb-[1rem] text-neutral-gray-100 inline-block last:pb-0 lg:w-max hover:text-primary-cyan transition-colors">
 						{{ item2 }}</a
 					>
 				</div>
@@ -20,7 +23,7 @@
 					:alt="`${item.alt}`"
 					v-for="(item, index) in iconsData"
 					:key="index"
-					class="text-white text-[2.7rem]" />
+					class="text-white text-[2.7rem] hoverFilt" />
 			</div>
 		</div>
 	</footer>
@@ -74,13 +77,27 @@ const iconsData = ref<Icons[]>([
 ])
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .filt {
 	filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(55deg) brightness(108%) contrast(101%);
 }
 
 .grids {
 	grid-template-columns: repeat(3, auto);
+}
+
+@media (min-width: 1024px) {
+	.footerGrids {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
+
+.hoverFilt {
+	transition: filter 0.2s;
+	cursor: pointer;
+	&:hover {
+		filter: invert(75%) sepia(19%) saturate(1382%) hue-rotate(128deg) brightness(187%) contrast(103%);
+	}
 }
 </style>
 <!-- export default defineEventHandler(async (event) => {

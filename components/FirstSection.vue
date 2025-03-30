@@ -9,8 +9,16 @@
 					<a href="#" class="pb-[1rem] border-b-[1px] block lg:pb-0 lg:border-none">{{ item.link1 }}</a>
 					<div class="lg:grid grids lg:items-center lg:gap-x-[3rem]">
 						<a href="#" class="mt-[1.3rem] mb-[1.5rem] block text-primary-cyan">{{ item.link2 }}</a>
-						<button class="py-[1rem] w-full bg-primary-cyan font-w700 text-white rounded-lg lg:py-[.7rem] lg:w-[8rem]">
-							Copy
+						<button
+							type="button"
+							@click="handleCopy"
+							class="py-[1rem] w-full font-w700 text-white rounded-lg lg:py-[.7rem] lg:w-[12rem] transition-opacity"
+							:class="
+								isCopied
+									? 'bg-neutral-gray-400 hover:opacity-100 cursor-default pointer-events-none'
+									: 'bg-primary-cyan hover:opacity-65'
+							">
+							{{ copyText }}
 						</button>
 					</div>
 				</div>
@@ -54,10 +62,23 @@ const { width } = useWindowSize()
 
 const store = useLinkStore()
 
+const copyText = ref<string>('Copy')
+const isCopied = ref<boolean>(false)
+
 interface Stats {
 	img: string
 	title: string
 	desc: string
+}
+
+const handleCopy = (): void => {
+	isCopied.value = true
+	copyText.value = 'Copied!'
+
+	setTimeout(() => {
+		isCopied.value = false
+		copyText.value = 'Copy'
+	}, 2000)
 }
 
 const statsData = ref<Stats[]>([
