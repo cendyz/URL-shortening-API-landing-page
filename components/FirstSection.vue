@@ -35,7 +35,8 @@
 					class="bg-neutral-50 rounded-xl pb-[3rem] pt-[8rem] relative sm:w-[40rem] sm:mx-auto md:mx-0 md:w-[45%] xl:w-auto"
 					v-for="(item, index) in statsData"
 					:key="index"
-					:class="[index === 2 && 'md:mx-auto', `xl:translateY(${Math.round(index * 5)}rem)`]">
+					:class="index === 2 && 'md:mx-auto'"
+					:style="{ transform: width >= 1280 ? `translateY(${Math.round(index * 5)}rem)` : 'translateY(0rem)' }">
 					<div
 						class="bg-primary-violet p-[2rem] rounded-full absolute top-[-3.9rem] left-1/2 translate-x-[-50%] xl:left-[16%]">
 						<img :src="item.img" :alt="item.title" class="block" />
@@ -55,6 +56,8 @@ import firstImg from 'assets/images/icon-brand-recognition.svg'
 import secondImg from 'assets/images/icon-detailed-records.svg'
 import thirdImg from 'assets/images/icon-fully-customizable.svg'
 import useLinkStore from '~/store/linkStore'
+import { useWindowSize } from '#imports'
+const { width } = useWindowSize()
 
 const store = useLinkStore()
 const checkIndex = ref(0)
