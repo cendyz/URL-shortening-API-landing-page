@@ -1,9 +1,9 @@
 <template>
-	<section class="bg-neutral-100 pt-[15rem] pb-[10rem] px-[2rem] text-center">
+	<section class="bg-[#eff1f7] pt-[15rem] pb-[10rem] px-[2rem] text-center">
 		<div class="lg:container">
 			<div class="mb-[8rem] xl:px-[2rem]" v-if="store.shortedLinks.length">
 				<div
-					class="bg-neutral-50 p-[1.5rem] text-left rounded-xl mb-[2rem] lg:flex lg:items-center lg:justify-between"
+					class="bg-white p-[1.5rem] text-left rounded-xl mb-[2rem] lg:flex lg:items-center lg:justify-between"
 					v-for="(item, index) in store.shortedLinks"
 					:key="index">
 					<a href="#" class="pb-[1rem] border-b-[1px] block lg:pb-0 lg:border-none max-w-[40rem]">{{ item.link2 }}</a>
