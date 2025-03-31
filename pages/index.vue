@@ -9,9 +9,8 @@
 </template>
 
 <script setup lang="ts">
-const urlToShorten = ref('https://icones.js.org/collection/ic')
-const shortUrl = ref('')
-const error = ref('')
+import useLinkStore from '~/store/linkStore'
+const store = useLinkStore()
 
 // const shortenUrl = async () => {
 // 	try {
@@ -30,10 +29,10 @@ const error = ref('')
 // 	}
 // }
 
-// onMounted(() => {
-// 	shortenUrl()
 
-// })
+// const func = (seconds:number):string => {
+
+// console.log(func(86399))
 </script>
 
 <style lang="scss">

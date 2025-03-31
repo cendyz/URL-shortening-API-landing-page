@@ -38,6 +38,7 @@ import boostDesktop from 'assets/images/bg-shorten-desktop.svg'
 import useLinkStore from '~/store/linkStore'
 const { width } = useWindowSize()
 const store = useLinkStore()
+
 const linkRegex = /^(https?:\/\/)?([\w-]+\.)+[\w-]{2,}(\/[\w-./?%&=]*)?$/
 const isError = ref<boolean>(false)
 const inputData = reactive({
@@ -45,20 +46,18 @@ const inputData = reactive({
 })
 const errorMessage = ref<string | undefined>()
 
-const firstLink = 'https://www.youtube.com/'
-const secondLink = 'https://www.instagram.com/'
-
-const shortLink = (): void => {
+const shortLink = async (): Promise<void> => {
 	if (!inputData.link) {
 		isError.value = true
 		errorMessage.value = 'Please add a link'
-	} else if (!linkRegex.test(inputData.link)) {
+	} else if (!linkRegex.test(inputData.link) || !inputData.link.startsWith('https://')) {
 		isError.value = true
 		errorMessage.value = 'Please provide a valid link'
 	} else {
+		store.userLink = inputData.link
 		isError.value = false
+		await store.sendLink()
 		inputData.link = ''
-		store.addLinks(firstLink, secondLink)
 	}
 }
 

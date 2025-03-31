@@ -1,18 +1,19 @@
 <template>
-	<footer class="bg-neutral-gray-400 text-center py-[6rem] px-[2rem]">
-		<div class="container grid lg:flex lg:justify-between lg:items-start">
-			<img :src="logo" alt="logo shortly" class="filt mx-auto" />
-			<div class="mt-[5rem] grid gap-y-[4rem] footerGrids lg:gap-x-[4rem] lg:mx-auto lg:mt-0 lg:pl-[5rem]">
+	<footer class="bg-neutral-gray-400 text-center py-[6rem] lg:pb-[19rem] px-[2rem]">
+		<div class="container grid lg:flex lg:justify-between lg:items-start lg:relative">
+			<img :src="logo" alt="logo shortly" class="filt mx-auto md:mx-0 md:mr-auto" />
+			<div
+				class="mt-[5rem] grid gap-y-[4rem] footerGrids lg:gap-x-[6rem] lg:absolute lg:top-0 lg:left-1/2 lg:translate-x-[-50%] lg:mx-auto lg:mt-0">
 				<div
 					v-for="(item, index) in footerData"
 					:key="index"
-					class="flex flex-col items-center text-neutral-50 capitalize lg:text-left">
+					class="flex flex-col items-center text-neutral-50 capitalize md:items-start">
 					<h4 class="text-[1.7rem] font-w700 mb-[2.5rem]">{{ item.title }}</h4>
 					<a
 						href="#"
 						v-for="(item2, index2) in item.links"
 						:key="index2"
-						class="pb-[1rem] text-neutral-gray-100 inline-block last:pb-0 lg:w-max hover:text-primary-cyan transition-colors">
+						class="pb-[1rem] text-neutral-gray-100 last:pb-0 lg:w-max hover:text-primary-cyan transition-colors">
 						{{ item2 }}</a
 					>
 				</div>
