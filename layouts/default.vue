@@ -19,7 +19,7 @@
 				>{{ item }}</a
 			>
 		</div>
-		<button @click="isOpen = !isOpen" class="md:hidden">
+		<button @click="isOpen = !isOpen" class="md:hidden" aria-label="nav menu opener">
 			<Icon v-show="!isOpen" name="quill:hamburger" class="text-[2.9rem]"></Icon>
 			<Icon v-show="isOpen" name="hugeicons:cancel-01" class="text-[2.9rem]"></Icon>
 		</button>

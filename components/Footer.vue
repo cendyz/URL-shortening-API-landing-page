@@ -8,7 +8,7 @@
 					v-for="(item, index) in footerData"
 					:key="index"
 					class="flex flex-col items-center text-neutral-50 capitalize md:items-start">
-					<h4 class="text-[1.7rem] font-w700 mb-[2.5rem]">{{ item.title }}</h4>
+					<p class="text-[1.7rem] font-w700 mb-[2.5rem]">{{ item.title }}</p>
 					<a
 						href="#"
 						v-for="(item2, index2) in item.links"
